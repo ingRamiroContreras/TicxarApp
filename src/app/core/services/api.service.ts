@@ -8,6 +8,8 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
+
+  
   constructor(
     private http: HttpClient,
     private jwtService: JwtService
@@ -33,6 +35,14 @@ export class ApiService {
     return this.http.post(
       `${environment.api_url}${path}`,
       JSON.stringify(body)
+    ).pipe(catchError(this.formatErrors));
+  }
+
+  postLogin(path: string, body: Object = {}): Observable<any> {
+    let headers = new HttpHeaders().set("Authorization", `Basic ${environment.authorization}`);
+    return this.http.post(
+      `${environment.api_url}${path}`,
+      JSON.stringify(body),{headers}
     ).pipe(catchError(this.formatErrors));
   }
 

@@ -37,7 +37,6 @@ export class UserService {
       this.purgeAuth();
     }
   }
-
   setAuth(user: User) {
     // Save JWT sent from server in localstorage
     this.jwtService.saveToken(user.token);
@@ -45,6 +44,15 @@ export class UserService {
     this.currentUserSubject.next(user);
     // Set isAuthenticated to true
     this.isAuthenticatedSubject.next(true);
+  }
+
+  setAuthTicxar(token: string) {
+    // Save JWT sent from server in localstorage
+    this.jwtService.saveToken(token);
+    // Set current user data into observable
+    //this.currentUserSubject.next(user);
+    // Set isAuthenticated to true
+    //this.isAuthenticatedSubject.next(true);
   }
 
   purgeAuth() {
@@ -62,6 +70,19 @@ export class UserService {
       .pipe(map(
       data => {
         this.setAuth(data.user);
+        return data;
+      }
+    ));
+  } 
+
+  attemptAuthTicxar(type, credentials): Observable<User> {
+    const route = (type === 'login') ? '/token' : '';
+    return this.apiService.postLogin('/' + route 
+    + `grant_type=password&username=${credentials.email}&password=${credentials.password}`
+    , {})
+      .pipe(map(
+      data => {
+        this.setAuthTicxar(data.access_token);
         return data;
       }
     ));

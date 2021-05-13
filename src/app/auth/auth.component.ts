@@ -49,7 +49,23 @@ export class AuthComponent implements OnInit {
     this.userService
     .attemptAuth(this.authType, credentials)
     .subscribe(
-      data => this.router.navigateByUrl('/'),
+      data => this.router.navigateByUrl('/data'),
+      err => {
+        this.errors = err;
+        this.isSubmitting = false;
+      }
+    );
+  }
+
+  submitFormTicxar() {
+    this.isSubmitting = true;
+    this.errors = {errors: {}};
+
+    const credentials = this.authForm.value;
+    this.userService
+    .attemptAuthTicxar(this.authType, credentials)
+    .subscribe(
+      data => this.router.navigateByUrl('/data'),
       err => {
         this.errors = err;
         this.isSubmitting = false;
