@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+
+<nav class="navbar navbar-expand-lg bg-blue py-4">
   <a class="navbar-brand" href="\">TicxarAPP</a>
   <button
     class="navbar-toggler"
@@ -15,21 +17,21 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/"> Home </a>
+        <a class="ml-4 ml-sm-5 mb-2" routerLink="/"> Home </a>
       </li>
 
       <li class="nav-item" *appShowAuthed="true">
-        <a class="nav-link" routerLink="/data" routerLinkActive="active">
+        <a class="ml-4 ml-sm-5 mb-2" routerLink="/data" routerLinkActive="active">
           <i class="ion-compose"></i>&nbsp;Data
         </a>
       </li>
     </ul>
-    <ul class="navbar-nav mx-auto">
+    <ul class="navbar-nav mx-auto d-flex">
       <li *appShowAuthed="true">
-        <button class="btn btn-secondary" (click)="logout()">logout.</button>
+        <button class="btn btn-outline-success" (click)="logout()">logout.</button>
       </li>
       <li class="nav-item" class="nav-item" *appShowAuthed="false">
-        <a class="nav-link" routerLink="/login" routerLinkActive="active">
+        <a class="ml-4 ml-sm-5 mb-2" routerLink="/login" routerLinkActive="active">
           Login
         </a>
       </li>
