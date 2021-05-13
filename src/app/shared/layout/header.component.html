@@ -1,0 +1,43 @@
+<nav class="navbar navbar-light">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Ticxar</a>
+
+    <!-- Show this for logged out users -->
+    <ul *appShowAuthed="false" class="nav navbar-nav pull-xs-right">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/"> Home </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">
+          Login
+        </a>
+      </li>
+
+      <!--  <li class="nav-item">
+        <a class="nav-link"
+          routerLink="/register"
+          routerLinkActive="active">
+          Sign up
+        </a>
+      </li> -->
+    </ul>
+
+    <!-- Show this for logged in users -->
+    <ul *appShowAuthed="true" class="nav navbar-nav pull-xs-right">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/"> Home </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/data" routerLinkActive="active">
+          <i class="ion-compose"></i>&nbsp;Data
+        </a>
+      </li>
+      <li>
+        <button class="btn" (click)="logout()">logout.
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
