@@ -1,42 +1,37 @@
-<nav class="navbar navbar-light">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/">Ticxar</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="\">TicxarAPP</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarColor01"
+    aria-controls="navbarColor01"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <!-- Show this for logged out users -->
-    <ul *appShowAuthed="false" class="nav navbar-nav pull-xs-right">
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="/"> Home </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login" routerLinkActive="active">
-          Login
-        </a>
-      </li>
-
-      <!--  <li class="nav-item">
-        <a class="nav-link"
-          routerLink="/register"
-          routerLinkActive="active">
-          Sign up
-        </a>
-      </li> -->
-    </ul>
-
-    <!-- Show this for logged in users -->
-    <ul *appShowAuthed="true" class="nav navbar-nav pull-xs-right">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/"> Home </a>
-      </li>
-
-      <li class="nav-item">
+      <li class="nav-item" *appShowAuthed="true">
         <a class="nav-link" routerLink="/data" routerLinkActive="active">
           <i class="ion-compose"></i>&nbsp;Data
         </a>
       </li>
-      <li>
-        <button class="btn" (click)="logout()">logout.
-        </button>
+    </ul>
+    <ul class="navbar-nav mx-auto">
+      <li *appShowAuthed="true">
+        <button class="btn btn-secondary" (click)="logout()">logout.</button>
+      </li>
+      <li class="nav-item" class="nav-item" *appShowAuthed="false">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">
+          Login
+        </a>
       </li>
     </ul>
   </div>
