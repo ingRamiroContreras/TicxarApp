@@ -2,6 +2,6 @@
     window["env"] = window["env"] || {};
   
     // Environment variables
-    window["env"]["api_url"] = "https://conduit.productionready.io/api";
-    window["env"]["authorization"] = "Basic S2N3ejNHRUZFUHVFUmw3ZzRyT2xrcEUxSEdZYTpSc3I5am9oNVlKUWN6enlYUkFEbkdsZWZWTEVh";
-  })(this);                                                                                                                      
+    window["env"]["api_url"] = "localhost:8080/111";
+    window["env"]["authorization"] = "";
+  })(this);                                                

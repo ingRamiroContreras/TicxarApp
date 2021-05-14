@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { environment } from '../../environments/environment';
 import { Errors, UserService } from '../core';
 
 @Component({
@@ -31,7 +31,8 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
     this.route.url.subscribe(data => {
       // Get the last piece of the URL (it's either 'login' or 'register')
-      this.authType = data[data.length - 1].path;
+      //this.authType = data[data.length - 1].path;
+      this.authType = 'login';
       // Set a title for the page accordingly
       this.title = (this.authType === 'login') ? 'Sign in' : 'Sign up';
       // add form control for username if this is the register page
@@ -41,10 +42,18 @@ export class AuthComponent implements OnInit {
     });
   }
 
+  submit(){
+    if (environment.authorization === 'default') {
+      this.submitForm();
+    }else{
+      this.submitFormTicxar();
+    }
+  }
+
   submitForm() {
     this.isSubmitting = true;
     this.errors = {errors: {}};
-
+  
     const credentials = this.authForm.value;
     this.userService
     .attemptAuth(this.authType, credentials)

@@ -5,7 +5,7 @@ import { DataComponent } from './data.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'data',
     component: DataComponent,
     resolve: {
       isAuthenticated: DataAuthResolver,

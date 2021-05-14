@@ -77,8 +77,8 @@ export class UserService {
 
   attemptAuthTicxar(type, credentials): Observable<User> {
     const route = (type === 'login') ? '/token' : '';
-    return this.apiService.postLogin('/' + route 
-    + `grant_type=password&username=${credentials.email}&password=${credentials.password}`
+    return this.apiService.postLogin( route 
+    + `?grant_type=password&username=${credentials.email}&password=${credentials.password}`
     , {})
       .pipe(map(
       data => {
