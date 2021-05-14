@@ -1,39 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <img
+    href="\"
+    class="navbar-brand"
+    src="../../../assets/img/logo_ticxar_margen.png"
+    class="logo-nav"
+  />
 
-<nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
-  <img href="\" class="navbar-brand" src="https://ticxar.co/wp-content/uploads/2019/12/logo_ticxar_margen.png" class="logo-nav">
-  
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarColor01"
-    aria-controls="navbarColor01"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarColor01">
+  <div class="navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/"> Home </a>
+        <a class="nav-link" routerLink="/">&nbsp;&nbsp;&nbsp;Home </a>
       </li>
 
       <li class="nav-item" *appShowAuthed="true">
         <a class="nav-link" routerLink="/data" routerLinkActive="active">
-          <i class="ion-compose"></i>&nbsp;Data
+          <i class="ion-compose"></i>&nbsp;&nbsp;&nbsp;Data
         </a>
       </li>
     </ul>
     <ul class="navbar-nav mx-auto d-flex">
       <li *appShowAuthed="true">
-        <button class="btn btn-outline-success" (click)="logout()">logout.</button>
+        &nbsp;
+        <button class="btn btn-outline-warning" (click)="logout()">
+          logout.
+        </button>
       </li>
       <li class="nav-item" class="nav-item" *appShowAuthed="false">
-        <a class="nav-link" routerLink="/login" routerLinkActive="active">
-          Login
-        </a>
+        &nbsp;
+        <button class="btn btn-warning" routerLink="/login">Sig in</button>
       </li>
     </ul>
   </div>
