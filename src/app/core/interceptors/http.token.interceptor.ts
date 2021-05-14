@@ -33,8 +33,9 @@ export class HttpTokenInterceptor implements HttpInterceptor {
         headersConfig['Authentication'] = `Bearer ${token}`;
       }
     }
-
+   
     const request = req.clone({ setHeaders: headersConfig });
+    console.log(request)
     return next.handle(request);
   }
 }

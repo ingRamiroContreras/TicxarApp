@@ -40,6 +40,8 @@ export class ApiService {
 
   postLogin(path: string, body: Object = {}): Observable<any> {
     let headers = new HttpHeaders().set("Authorization", `Basic ${environment.authorization}`);
+    console.log('headers',headers);
+    console.log('url',`${environment.api_url}${path}`);
     return this.http.post(
       `${environment.api_url}${path}`,
       JSON.stringify(body),{headers}
