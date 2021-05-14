@@ -52,7 +52,7 @@ export class UserService {
     // Set current user data into observable
     //this.currentUserSubject.next(user);
     // Set isAuthenticated to true
-    //this.isAuthenticatedSubject.next(true);
+    this.isAuthenticatedSubject.next(true);
   }
 
   purgeAuth() {
