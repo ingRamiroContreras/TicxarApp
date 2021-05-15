@@ -11,6 +11,8 @@ import { JwtService } from '../services';
 
 @Injectable()
 export class HttpTokenInterceptor implements HttpInterceptor {
+
+  headers = `Basic ${environment.authorization}`;
   constructor(private jwtService: JwtService) {}
 
   intercept(
@@ -23,19 +25,21 @@ export class HttpTokenInterceptor implements HttpInterceptor {
     };
 
     const token = this.jwtService.getToken();
-
+    console.log('Token',token)
     if (environment.authorization === 'default') {
       if (token) {
         headersConfig['Authorization'] = `Token ${token}`;
       }
     } else {
       if (token) {
-        headersConfig['Authentication'] = `Bearer ${token}`;
+        headersConfig['Authorization'] = `Bearer ${token}`;
+      }else{
+        headersConfig['Authorization'] = `Basic ${environment.authorization}`;
       }
     }
    
     const request = req.clone({ setHeaders: headersConfig });
-    console.log(request)
+    console.log('request',request)
     return next.handle(request);
   }
 }
