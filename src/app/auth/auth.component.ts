@@ -76,6 +76,7 @@ export class AuthComponent implements OnInit {
     .subscribe(
       data => this.router.navigateByUrl('/data'),
       err => {
+        console.log("AuthComponent errors",err);
         this.errors = err;
         this.isSubmitting = false;
       }

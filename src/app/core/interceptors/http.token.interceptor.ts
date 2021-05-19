@@ -19,20 +19,28 @@ export class HttpTokenInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const headersConfig = {
-      'Content-Type': 'application/json'
-    };
+    
+    const headersConfig = {};
 
     const token = this.jwtService.getToken();
-    console.log('Token',token)
+    console.log('Interceptor');
     if (environment.authorization === 'default') {
       if (token) {
+        headersConfig['Content-Type'] = 'application/json';
+        headersConfig['Accept'] = 'application/json';
         headersConfig['Authorization'] = `Token ${token}`;
+        console.log('default');
       }
     } else {
       if (token) {
+        headersConfig['Content-Type'] = 'application/json';
+        headersConfig['Accept'] = 'application/json';
         headersConfig['Authorization'] = `Bearer ${token}`;
+        console.log('Bearer');
       }else{
+        console.log('Basic');
+        headersConfig['Content-Type'] = 'application/x-www-form-urlencoded';
+        headersConfig['Accept'] = '';
         headersConfig['Authorization'] = `Basic ${environment.authorization}`;
       }
     }

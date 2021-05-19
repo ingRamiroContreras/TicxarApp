@@ -39,9 +39,15 @@ export class ApiService {
   }
 
   postLogin(path: string, body: Object = {}): Observable<any> {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', '');
+    headers.append('Accept', '');
+    console.log('postLogin');
     return this.http.post(
       `${environment.api_url}${path}`,
-      JSON.stringify(body)
+      JSON.stringify(body),{
+        headers: headers
+      }
     ).pipe(catchError(this.formatErrors));
   }
 
