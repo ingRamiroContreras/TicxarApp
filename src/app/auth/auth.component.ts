@@ -11,7 +11,7 @@ import { Errors, UserService } from '../core';
 export class AuthComponent implements OnInit {
   authType: String = '';
   title: String = '';
-  errors: Errors = {errors: {}};
+  errors: Errors;
   isSubmitting = false;
   authForm: FormGroup;
 
@@ -68,7 +68,7 @@ export class AuthComponent implements OnInit {
 
   submitFormTicxar() {
     this.isSubmitting = true;
-    this.errors = {errors: {}};
+    this.errors;
 
     const credentials = this.authForm.value;
     this.userService

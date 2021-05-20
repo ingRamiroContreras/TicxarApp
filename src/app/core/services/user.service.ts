@@ -77,8 +77,6 @@ export class UserService {
   attemptAuthTicxar(type, credentials): Observable<User> {
     const route = type === 'login' ? '/token/' : '';
     console.log("prueba si cambio y esta correcto")
-      
-
     return this.apiService
     .postLogin(
       route +
@@ -86,6 +84,7 @@ export class UserService {
     )
     .pipe(
       map((data) => {
+        console.log("token", data.access_token)
         this.setAuthTicxar(data.access_token);
         return data;
       })
@@ -105,5 +104,18 @@ export class UserService {
         return data.user;
       })
     );
+  }
+
+  data() {
+    // If JWT detected, attempt to get & store user's info
+    if (this.jwtService.getToken()) {
+      this.apiService.get('/data').subscribe(
+        (data) => data,
+        (err) => this.purgeAuth()
+      );
+    } else {
+      // Remove any potential remnants of previous auth states
+      this.purgeAuth();
+    }
   }
 }
