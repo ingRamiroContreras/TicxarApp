@@ -39,10 +39,9 @@ export class ApiService {
   }
 
   postLogin(path: string, body: Object = {}): Observable<any> {
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', '');
-    headers.append('Accept', '');
-    console.log('postLogin');
+    let headers = 
+    new HttpHeaders({'Content-type': 'application/x-www-form-urlencoded; charset=utf-8'});
+    
     return this.http.post(
       `${environment.api_url}${path}`,
       JSON.stringify(body),{

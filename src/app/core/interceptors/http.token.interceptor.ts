@@ -39,8 +39,8 @@ export class HttpTokenInterceptor implements HttpInterceptor {
         console.log('Bearer');
       }else{
         console.log('Basic');
-        headersConfig['Content-Type'] = 'application/x-www-form-urlencoded';
-        headersConfig['Accept'] = '';
+        headersConfig['Content-Type'] = "application/x-www-form-urlencoded";
+        headersConfig['Accept'] = "application/json";
         headersConfig['Authorization'] = `Basic ${environment.authorization}`;
       }
     }
