@@ -12,7 +12,10 @@ export class ListErrorsComponent {
   @Input()
   set errors(errorList: Errors) {
     console.log('ListErrorsComponent', errorList);
-    if (!errorList.errors) {
+    if (typeof errorList === 'undefined') {
+      return;
+    }
+    if (typeof errorList.errors === 'undefined') {
       this.formattedErrors = Object.keys(errorList || {})
         .map(key => `${key} ${errorList[key]}`);
     }else{

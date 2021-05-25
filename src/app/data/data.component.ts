@@ -46,9 +46,10 @@ export class DataComponent implements OnInit {
           console.log(data);
           data;
           this.formattedData = Object.keys(data || {})
-          .map(key => `${key} ${data[key]}`);
+          .map(key => `${key}: ${data[key]}`);
         },
         (err) => {
+          this.formattedData = [];
           this.errors = err;
           this.isSubmitting = false;
         }

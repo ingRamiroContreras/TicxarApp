@@ -6,35 +6,43 @@
             <div class="row">
               <img src="../../assets/img/logoclor.png" class="logo" />
             </div>
-            <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
-              <img src="../../assets/img/mantenimiento.png" class="image" />
+            <div class="card2 card border-0 px-4 py-5">
+              <div class="row mb-4 px-3">
+                <h6 class="mb-0 mr-4 mt-2">Query User</h6>
+              </div>
+              <div class="row px-3 mb-4">
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+              <app-list-errors [errors]="errors"></app-list-errors>
+              <form [formGroup]="authFormData" (ngSubmit)="submit()">
+                <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">User</h6>
+                    </label> 
+                    <input formControlName="userId"
+                      placeholder="user Id"
+                      class="form-control form-control-lg"
+                      type="text" class="mb-4" type="text" name="userId" placeholder="User ID"> 
+                </div>
+                <div class="row mb-3 px-3"> <button [disabled]="!authFormData.valid" type="submit" type="submit" class="btn btn-blue text-center">Submit</button> </div>
+                <!-- <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a class="text-danger ">Register</a></small> </div> -->
+              </form>
             </div>
           </div>
         </div>
         <div class="col-lg-6">
+          <div class="row">
+            <div  class="logo"> </div>
+          </div>
           <div class="card2 card border-0 px-4 py-5">
             <div class="row mb-4 px-3">
-              <h6 class="mb-0 mr-4 mt-2">Data</h6>
+              <h6 class="mb-0 mr-4 mt-2">Data User </h6>
             </div>
             <div class="row px-3 mb-4">
               <div class="line"></div>
               <div class="line"></div>
             </div>
-            <app-list-errors [errors]="errors"></app-list-errors>
-            <form [formGroup]="authFormData" (ngSubmit)="submit()">
-              <div class="row px-3"> <label class="mb-1">
-                      <h6 class="mb-0 text-sm">User</h6>
-                  </label> 
-                  <input formControlName="userId"
-                    placeholder="user Id"
-                    class="form-control form-control-lg"
-                    type="text" class="mb-4" type="text" name="userId" placeholder="User ID"> 
-              </div>
-              <div class="row mb-3 px-3"> <button [disabled]="!authFormData.valid" type="submit" type="submit" class="btn btn-blue text-center">Submit</button> </div>
-              <!-- <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a class="text-danger ">Register</a></small> </div> -->
-            </form>
-
-            <ul class="alert alert-danger" style="padding-left: 30px;" role="alert" *ngIf="formattedData.length > 0">
+            <ul class="alert alert-primary" style="padding-left: 30px;" role="alert" *ngIf="formattedData.length > 0">
                 <li *ngFor="let data of formattedData">
                   {{ data }}
                 </li>
