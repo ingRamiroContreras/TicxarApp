@@ -108,7 +108,7 @@ export class UserService {
 
   data(userId: Number): Observable<any>  {
     if (this.jwtService.getToken()) {
-      return this.apiService.get('/employees/'+userId).pipe(
+      return this.apiService.get('/employees/v1/'+userId).pipe(
         map((data) => {
           return data;
         })
