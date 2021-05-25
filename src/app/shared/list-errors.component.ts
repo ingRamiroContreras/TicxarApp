@@ -12,9 +12,12 @@ export class ListErrorsComponent {
   @Input()
   set errors(errorList: Errors) {
     console.log('ListErrorsComponent', errorList);
-    if (errorList) {
+    if (!errorList.errors) {
       this.formattedErrors = Object.keys(errorList || {})
         .map(key => `${key} ${errorList[key]}`);
+    }else{
+      this.formattedErrors = Object.keys(errorList.errors || {})
+        .map(key => `${key} ${errorList.errors[key]}`);
     }
   }
 

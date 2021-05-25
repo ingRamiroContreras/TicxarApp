@@ -16,6 +16,7 @@ export class ApiService {
   ) {}
 
   private formatErrors(error: any) {
+    console.log('error --->' , error)
     return  throwError(error.error);
   }
 
@@ -54,5 +55,11 @@ export class ApiService {
     return this.http.delete(
       `${environment.api_url}${path}`
     ).pipe(catchError(this.formatErrors));
+  }
+
+
+  getRickAndMorty(path: string, params: HttpParams = new HttpParams()): Observable<any> {
+    return this.http.get(`${path}`)
+      .pipe(catchError(this.formatErrors));
   }
 }

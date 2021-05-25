@@ -43,11 +43,7 @@ export class AuthComponent implements OnInit {
   }
 
   submit(){
-    if (environment.authorization === 'default') {
-      this.submitForm();
-    }else{
-      this.submitFormTicxar();
-    }
+    this.submitFormTicxar();
   }
 
   submitForm() {

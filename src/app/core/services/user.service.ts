@@ -106,12 +106,33 @@ export class UserService {
     );
   }
 
-  data() {
+  data(userId: Number): Observable<any>  {
     // If JWT detected, attempt to get & store user's info
     if (this.jwtService.getToken()) {
-      this.apiService.get('/data').subscribe(
-        (data) => data,
-        (err) => this.purgeAuth()
+     /* return this.apiService.get('/employees/'+ userId).pipe(
+        (data) => data
+      ); */
+      return this.apiService.get('/employees/'+userId).pipe(
+        map((data) => {
+          return data;
+        })
+      );
+    } else {
+      // Remove any potential remnants of previous auth states
+      this.purgeAuth();
+    }
+  }
+
+  dataRickAndMorty(userId: Number): Observable<any>  {
+    // If JWT detected, attempt to get & store user's info
+    if (this.jwtService.getToken()) {
+     /* return this.apiService.get('/employees/'+ userId).pipe(
+        (data) => data
+      ); */
+      return this.apiService.getRickAndMorty('https://rickandmortyapi.com/api/character/'+userId).pipe(
+        map((data) => {
+          return data;
+        })
       );
     } else {
       // Remove any potential remnants of previous auth states

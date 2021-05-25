@@ -24,26 +24,19 @@ export class HttpTokenInterceptor implements HttpInterceptor {
 
     const token = this.jwtService.getToken();
     console.log('Interceptor');
-    if (environment.authorization === 'default') {
-      if (token) {
-        headersConfig['Content-Type'] = 'application/json';
-        headersConfig['Accept'] = 'application/json';
-        headersConfig['Authorization'] = `Token ${token}`;
-        console.log('default');
-      }
-    } else {
-      if (token) {
-        headersConfig['Content-Type'] = 'application/json';
-        headersConfig['Accept'] = 'application/json';
-        headersConfig['Authorization'] = `Bearer ${token}`;
-        console.log('Bearer');
-      }else{
-        console.log('Basic');
-        headersConfig['Content-Type'] = "application/x-www-form-urlencoded";
-        headersConfig['Accept'] = "application/json";
-        headersConfig['Authorization'] = `Basic ${environment.authorization}`;
-      }
+   
+    if (token) {
+      headersConfig['Content-Type'] = 'application/json';
+      headersConfig['Accept'] = 'application/json';
+      headersConfig['Authorization'] = `Bearer ${token}`;
+      console.log('Bearer');
+    }else{
+      console.log('Basic');
+      headersConfig['Content-Type'] = "application/x-www-form-urlencoded";
+      headersConfig['Accept'] = "application/json";
+      headersConfig['Authorization'] = `Basic ${environment.authorization}`;
     }
+  
    
     const request = req.clone({ setHeaders: headersConfig });
     console.log('request',request)
