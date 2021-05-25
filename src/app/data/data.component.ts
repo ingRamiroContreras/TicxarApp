@@ -41,7 +41,7 @@ export class DataComponent implements OnInit {
       this.isSubmitting = true;
       this.errors = { errors: {} };
       console.log(this.authFormData.get('userId').value);
-      this.userService.dataRickAndMorty(this.authFormData.get('userId').value).subscribe(
+      this.userService.data(this.authFormData.get('userId').value).subscribe(
         (data) => {
           console.log(data);
           data;
