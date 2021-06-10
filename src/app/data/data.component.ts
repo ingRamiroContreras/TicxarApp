@@ -30,6 +30,7 @@ export class DataComponent implements OnInit {
     this.authFormData = this.fb.group({
       'userId': ['', Validators.required],
     });
+
   }
 
   ngOnInit(): void {}

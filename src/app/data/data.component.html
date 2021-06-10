@@ -1,67 +1,33 @@
-<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
-    <div class="card card0 border-0">
-      <div class="row d-flex">
-        <div class="col-lg-6">
-          <div class="card1 pb-5">
-            <div class="row">
-              <img src="../../assets/img/logoclor.png" class="logo" />
-            </div>
-            <div class="card2 card border-0 px-4 py-5">
-              <div class="row mb-4 px-3">
-                <h6 class="mb-0 mr-4 mt-2">Query User</h6>
-              </div>
-              <div class="row px-3 mb-4">
-                <div class="line"></div>
-                <div class="line"></div>
-              </div>
-              <app-list-errors [errors]="errors"></app-list-errors>
-              <form [formGroup]="authFormData" (ngSubmit)="submit()">
-                <div class="row px-3"> <label class="mb-1">
-                        <h6 class="mb-0 text-sm">User</h6>
-                    </label> 
-                    <input formControlName="userId"
-                      placeholder="user Id"
-                      class="form-control form-control-lg"
-                      type="text" class="mb-4" type="text" name="userId" placeholder="User ID"> 
-                </div>
-                <div class="row mb-3 px-3"> <button [disabled]="!authFormData.valid" type="submit" type="submit" class="btn btn-blue text-center">Submit</button> </div>
-                <!-- <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a class="text-danger ">Register</a></small> </div> -->
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="row">
-            <div  class="logo"> </div>
-          </div>
-          <div class="card2 card border-0 px-4 py-5">
-            <div class="row mb-4 px-3">
-              <h6 class="mb-0 mr-4 mt-2">Data User </h6>
-            </div>
-            <div class="row px-3 mb-4">
-              <div class="line"></div>
-              <div class="line"></div>
-            </div>
-            <ul class="alert alert-primary" style="padding-left: 30px;" role="alert" *ngIf="formattedData.length > 0">
-                <li *ngFor="let data of formattedData">
-                  {{ data }}
-                </li>
-            </ul>
-          </div>
-        </div>
+
+<div class="signed w-row">
+  <div class="query-user w-col w-col-6"><img src="../../assets/img/user-2.svg" loading="lazy" width="100" alt=""
+      class="image-2">
+    <h1 class="heading-3">Query User</h1>
+    <div class="w-form">
+      <app-list-errors [errors]="errors"></app-list-errors>
+      <form [formGroup]="authFormData" (ngSubmit)="submit()" id="email-form-2" name="email-form-2" data-name="Email Form 2">
+        
+        <input formControlName="userId" 
+          class="text-field-3 w-input" maxlength="256" name="email-2" data-name="Email 2" placeholder="User ID"
+          id="email-2" required="">
+          
+          <button [disabled]="!authFormData.valid" type="submit" type="submit"
+                  class="submit-button-2 w-button">Submit</button> 
+      </form>
+      <div class="w-form-done">
+        <div>Thank you! Your submission has been received!</div>
       </div>
-      <div class="bg-blue py-4">
-        <div class="row px-3">
-          <small class="ml-4 ml-sm-5 mb-2"
-            >Copyright &copy; 2021. All rights reserved.</small
-          >
-          <div class="social-contact ml-4 ml-sm-auto">
-            <span class="fa fa-facebook mr-4 text-sm"></span>
-            <span class="fa fa-google-plus mr-4 text-sm"></span>
-            <span class="fa fa-linkedin mr-4 text-sm"></span>
-            <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span>
-          </div>
-        </div>
+      <div class="w-form-fail">
+        <div>Oops! Something went wrong while submitting the form.</div>
       </div>
     </div>
   </div>
+  <div class="userid w-col w-col-6">
+    <ul class="alert alert-primary" style="padding-left: 30px;" role="alert" *ngIf="formattedData.length > 0">
+      <li *ngFor="let data of formattedData" class="list-item-2">
+        {{ data }}
+      </li>
+    </ul>
+
+  </div>
+</div>

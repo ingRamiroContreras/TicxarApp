@@ -2,18 +2,16 @@
   <div class="container w-container">
     <a href="#" class="w-nav-brand"><img src="../../../assets/img/logoclor.png" loading="lazy" width="90" alt=""></a>
     <nav role="navigation" class="nav-menu w-nav-menu">
-      <a href="index.html" aria-current="page" class="w-nav-link w--current" routerLink="/">Home</a>
+      <a href="index.html" class="w-nav-link" routerLink="/" >Home</a>
+      
+      <a href="signed-in-query-user.html" class="w-nav-link" *appShowAuthed="true" routerLink="/data" routerLinkActive="active" >Query User</a>
 
       <a href="sign-in.html" class="nav-link w-nav-link" *appShowAuthed="false" routerLink="/login">Sign in</a>
+      
       <button class="nav-link w-nav-link" *appShowAuthed="true" (click)="logout()">
         logout.
       </button>
 
-      <!-- <a href="sign-in-error.html" class="w-nav-link">Sign in Error</a>
-      <a href="signed-in.html" class="w-nav-link">Signed in</a> -->
-      <!-- <a href="signed-in-error-query.html" class="w-nav-link">Error Query</a> -->
-
-      <a href="signed-in-query-user.html" class="w-nav-link" *appShowAuthed="true" routerLink="/data" routerLinkActive="active" >Query User</a>
       
     </nav>
     <div class="w-nav-button">
