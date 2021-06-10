@@ -1,34 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <img
-    href="\"
-    class="navbar-brand"
-    src="../../../assets/img/logo_ticxar_margen.png"
-    class="logo-nav"
-  />
+<div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="w-nav">
+  <div class="container w-container">
+    <a href="#" class="w-nav-brand"><img src="../../../assets/img/logoclor.png" loading="lazy" width="90" alt=""></a>
+    <nav role="navigation" class="nav-menu w-nav-menu">
+      <a href="index.html" aria-current="page" class="w-nav-link w--current" routerLink="/">Home</a>
 
-  <div class="navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/">&nbsp;&nbsp;&nbsp;Home </a>
-      </li>
+      <a href="sign-in.html" class="nav-link w-nav-link" *appShowAuthed="false" routerLink="/login">Sign in</a>
+      <button class="nav-link w-nav-link" *appShowAuthed="true" (click)="logout()">
+        logout.
+      </button>
 
-      <li class="nav-item" *appShowAuthed="true">
-        <a class="nav-link" routerLink="/data" routerLinkActive="active">
-          <i class="ion-compose"></i>&nbsp;&nbsp;&nbsp;Data
-        </a>
-      </li>
-    </ul>
-    <ul class="navbar-nav mx-auto d-flex">
-      <li *appShowAuthed="true">
-        &nbsp;
-        <button class="btn btn-outline-warning" (click)="logout()">
-          logout.
-        </button>
-      </li>
-      <li class="nav-item" class="nav-item" *appShowAuthed="false">
-        &nbsp;
-        <button class="btn btn-warning" routerLink="/login">Sign in</button>
-      </li>
-    </ul>
+      <!-- <a href="sign-in-error.html" class="w-nav-link">Sign in Error</a>
+      <a href="signed-in.html" class="w-nav-link">Signed in</a> -->
+      <!-- <a href="signed-in-error-query.html" class="w-nav-link">Error Query</a> -->
+
+      <a href="signed-in-query-user.html" class="w-nav-link" *appShowAuthed="true" routerLink="/data" routerLinkActive="active" >Query User</a>
+      
+    </nav>
+    <div class="w-nav-button">
+      <div class="w-icon-nav-menu"></div>
+    </div>
   </div>
-</nav>
+</div>

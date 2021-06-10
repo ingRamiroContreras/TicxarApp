@@ -1,51 +1,32 @@
+<div class="signign w-row">
+    <div class="w-col w-col-3"></div>
+    <div class="column-6 w-col w-col-6">
+        <div class="div-block"><img src="../../assets/img/GESTION-DE-IDENTIDADES.png" loading="lazy" width="150"
+                sizes="150px"
+                srcset="../../assets/img/GESTION-DE-IDENTIDADES.png 500w, ../../assets/img/GESTION-DE-IDENTIDADES.png 1081w"
+                alt=""></div>
 
-<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
-  <div class="card card0 border-0">
-      <div class="row d-flex">
-          <div class="col-lg-6">
-              <div class="card1 pb-5">
-                  <div class="row"> <img src="../../assets/img/logoclor.png" class="logo"> </div>
-                  <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="../../assets/img/login-img.png" class="image"> </div>
-              </div>
-          </div>
-          <div class="col-lg-6">
-              <div class="card2 card border-0 px-4 py-5">
-                  <div class="row mb-4 px-3">
-                      <h6 class="mb-0 mr-4 mt-2">Sign in</h6>
-                  </div>
-                  <div class="row px-3 mb-4">
-                      <div class="line"></div>
-                      <div class="line"></div>
-                  </div>
-                  <app-list-errors [errors]="errors"></app-list-errors>
-                  <form [formGroup]="authForm" (ngSubmit)="submit()">
-                    <div class="row px-3"> <label class="mb-1">
-                            <h6 class="mb-0 text-sm">User</h6>
-                        </label> 
-                        <input formControlName="email"
-                          placeholder="Email"
-                          class="form-control form-control-lg"
-                          type="text" class="mb-4" type="text" name="email" placeholder="Enter a valid email address"> 
-                    </div>
-                    <div class="row px-3"> <label class="mb-1">
-                            <h6 class="mb-0 text-sm">Password</h6>
-                        </label> 
-                        <input  formControlName="password"
-                          placeholder="Password"
-                          class="form-control form-control-lg"
-                          type="password"  class="mb-4" name="password" placeholder="Enter password"> 
-                    </div>
-                    <div class="row mb-3 px-3"> <button [disabled]="!authForm.valid" type="submit" type="submit" class="btn btn-blue text-center">Login</button> </div>
-                    <!-- <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a class="text-danger ">Register</a></small> </div> -->
-                  </form>
-              </div>
-          </div>
-      </div>
-      <div class="bg-blue py-4">
-          <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2021. All rights reserved.</small>
-              <div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span class="fa fa-google-plus mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span> <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> </div>
-          </div>
-      </div>
-  </div>
+        <app-list-errors [errors]="errors"></app-list-errors>
+        <div class="w-form">
+            <form id="email-form" name="email-form" data-name="Email Form" [formGroup]="authForm" (ngSubmit)="submit()">
+                
+                <label for="Email">User</label>
+                <input formControlName="email" class="text-field w-input" maxlength="256" name="Email" data-name="Email" placeholder="User" id="Email">
+                
+                <label for="Password">Password</label>
+                <input formControlName="password" type="password" class="text-field-2 w-input" maxlength="256" placeholder="Password" name="Password" data-name="Password"
+                  id="Password" required="">
+                
+                <button [disabled]="!authForm.valid" type="submit" type="submit"
+                    class="submit-button w-button">Login</button>
+            </form>
+            <div class="w-form-done">
+                <div>Thank you! Your submission has been received!</div>
+            </div>
+            <div class="w-form-fail">
+                <div>Oops! Something went wrong while submitting the form.</div>
+            </div>
+        </div>
+    </div>
+    <div class="w-col w-col-3"></div>
 </div>
-
